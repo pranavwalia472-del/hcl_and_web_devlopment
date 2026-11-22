@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Template Hunt | MediConnect</title>
+  <style>
+    :root {
+      --teal: #0d9488;
+      --teal-dark: #115e59;
+      --ink: #183b45;
+      --muted: #64748b;
+      --line: #dcebe8;
+      --soft: #f0fdfa;
+      --paper: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; background: #f5f8f8; color: #334155;
+      font: 15px/1.65 Inter, "Segoe UI", Arial, sans-serif;
+    }
+    .wrap { width: min(1060px, calc(100% - 36px)); margin: 42px auto 60px; }
+    header { margin-bottom: 28px; }
+    .kicker { color: var(--teal); text-transform: uppercase; letter-spacing: 2px; font-size: 11px; font-weight: 800; }
+    h1 { color: var(--ink); font-size: clamp(30px, 5vw, 46px); line-height: 1.12; letter-spacing: -1.5px; margin: 8px 0 12px; }
+    header p { max-width: 720px; color: var(--muted); margin: 0; font-size: 16px; }
+    h2 { color: var(--ink); font-size: 21px; letter-spacing: -.4px; margin: 0 0 12px; }
+    .sites, .chosen { background: var(--paper); border: 1px solid var(--line); border-radius: 17px; padding: 22px 24px; margin: 18px 0 30px; }
+    .site-list { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 14px; }
+    .site-list a { text-decoration: none; color: var(--teal-dark); background: var(--soft); border: 1px solid var(--line); padding: 7px 12px; border-radius: 30px; font-size: 13px; }
+    .site-list a:hover { background: #ccfbf1; }
+    .small-note { color: var(--muted); font-size: 13px; margin: 8px 0 0; }
+    .candidates { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px; margin-top: 17px; }
+    .card { background: var(--paper); border: 1px solid var(--line); border-radius: 17px; overflow: hidden; }
+    .card.selected { border: 2px solid var(--teal); box-shadow: 0 12px 30px rgba(13,148,136,.12); }
+    .preview { display: block; width: 100%; height: 250px; object-fit: cover; object-position: top; background: #e8f4f2; border-bottom: 1px solid var(--line); }
+    .card-body { padding: 19px; }
+    .topline { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 8px; }
+    .tag { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; font-weight: 800; color: var(--teal-dark); background: var(--soft); padding: 5px 9px; border-radius: 20px; }
+    .picked { color: white; background: var(--teal); }
+    h3 { color: var(--ink); font-size: 18px; margin: 0 0 7px; }
+    .card p { color: var(--muted); font-size: 13px; margin: 0 0 12px; }
+    .why { color: #475569 !important; border-top: 1px solid #edf2f2; padding-top: 11px; margin-top: 12px !important; }
+    .link { display: inline-block; color: var(--teal-dark); font-size: 13px; font-weight: 700; text-decoration: none; }
+    .link:hover { text-decoration: underline; }
+    .chosen { background: linear-gradient(135deg, #f0fdfa, #fff); border-color: #a7e8df; }
+    .chosen h2 { margin-bottom: 8px; }
+    .chosen p { margin: 7px 0; }
+    .chosen strong { color: var(--teal-dark); }
+    footer { color: #94a3b8; text-align: center; font-size: 12px; margin-top: 35px; }
+    @media (max-width: 720px) {
+      .candidates { grid-template-columns: 1fr; }
+      .preview { height: 220px; }
+      .sites, .chosen { padding: 19px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <div class="kicker">MediConnect · A little design research</div>
+      <h1>Finding a look for the website</h1>
+      <p>
+        So before building the pages, I looked around for healthcare and
+        telemedicine website designs. I wanted something clean and modern,
+        with a good way to present doctors and make appointment booking feel
+        straightforward. Here are some of the places I checked and a few
+        designs I shortlisted.
+      </p>
+    </header>
+
+    <section class="sites">
+      <h2>Where I looked</h2>
+      <p class="small-note">A mix of ready-made website templates and UI design inspiration.</p>
+      <div class="site-list">
+        <a href="https://www.canva.com/templates/" target="_blank" rel="noopener">Canva</a>
+        <a href="https://www.figma.com/community" target="_blank" rel="noopener">Figma Community</a>
+        <a href="https://dribbble.com/" target="_blank" rel="noopener">Dribbble</a>
+        <a href="https://www.behance.net/" target="_blank" rel="noopener">Behance</a>
+        <a href="https://themeforest.net/" target="_blank" rel="noopener">ThemeForest</a>
+        <a href="https://dorik.com/templates" target="_blank" rel="noopener">Dorik</a>
+      </div>
+      <p class="small-note">
+        Canva and template marketplaces were useful for complete website
+        examples. Figma, Dribbble, and Behance were useful for exploring
+        individual screens, layouts, and UI ideas.
+      </p>
+    </section>
+
+    <section>
+      <h2>A few candidates I considered</h2>
+      <div class="candidates">
+        <article class="card selected">
+          <img class="preview"
+            src="https://cdn.cmsfly.com/635bcad9b8a74e0091632998/telehealth-rw7leo-R0VUxF.webp"
+            alt="Wellbe telehealth template preview">
+          <div class="card-body">
+            <div class="topline">
+              <span class="tag">Dorik · Wellbe</span>
+              <span class="tag picked">My choice</span>
+            </div>
+            <h3>Wellbe – Telehealth Website</h3>
+            <p>
+              A telehealth-focused design with a teal palette, clear hero
+              section, service highlights, and healthcare-focused content.
+            </p>
+            <p class="why">
+              <strong>Why I picked it:</strong> The overall look felt right
+              for MediConnect: calm, modern, and professional. The teal
+              direction was a good fit, and the layout gave me ideas for
+              presenting services and guiding users toward booking without
+              making the site feel crowded.
+            </p>
+            <a class="link" href="https://dorik.com/template/wellbe-telehealth-website-template" target="_blank" rel="noopener">View the Wellbe template ↗</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <img class="preview"
+            src="https://doccure.dreamstechnologies.com/assets/img/landing/home-01.jpg"
+            alt="Doccure doctor appointment website template preview">
+          <div class="card-body">
+            <div class="topline"><span class="tag">Doccure</span><span class="tag">Alternative</span></div>
+            <h3>Doccure – Doctor Appointment</h3>
+            <p>
+              A more feature-heavy healthcare website concept, with doctor
+              search, specialties, doctor profiles, and appointment-related
+              sections.
+            </p>
+            <p class="why">
+              <strong>What I liked:</strong> It showed useful ways to organize
+              doctor discovery and appointment booking. I kept it as a
+              reference for features and page structure, but its overall
+              design was not the visual direction I wanted to use.
+            </p>
+            <a class="link" href="https://doccure.dreamstechnologies.com/" target="_blank" rel="noopener">View the Doccure demo ↗</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <img class="preview"
+            src="https://s3.envato.com/files/645270767/5.png"
+            alt="Healora online health consultation template preview">
+          <div class="card-body">
+            <div class="topline"><span class="tag">Healora</span><span class="tag">Alternative</span></div>
+            <h3>Healora – Online Consultation</h3>
+            <p>
+              A teal-and-green online consultation design with doctor imagery,
+              service information, and a strong landing-page layout.
+            </p>
+            <p class="why">
+              <strong>What I considered:</strong> It was relevant to the
+              telemedicine idea and had a polished look. I preferred Wellbe's
+              simpler visual direction for the version of MediConnect I was
+              building.
+            </p>
+            <a class="link" href="https://themeforest.net/item/healora-online-health-consultation-saas-platform-elementor-template-kit/59268666" target="_blank" rel="noopener">View the Healora template ↗</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="chosen">
+      <h2>So, I went with Wellbe.</h2>
+      <p>
+        It was the closest match to what I had in mind. I liked the <strong>teal
+        and dark tones, clean layout, and healthcare-focused feel</strong>.
+        It also gave me a useful starting point without forcing me to use
+        features or layouts that the project did not need.
+      </p>
+      <p>
+        I didn't copy the template as-is. I used it as a visual reference and
+        adapted the pages, colors, and components around MediConnect's own
+        features: Home, Doctors, Book Appointment, My Appointments, FAQ, and
+        Contact.
+      </p>
+      <p class="small-note">
+        The previews above are examples from the linked template pages. They
+        are included to show the kind of designs I compared, not to suggest
+        that the final MediConnect interface is an exact copy.
+      </p>
+      <p class="chosen">
+        I did some self modification to the template so that 
+        it's wouldn't  be a copy of the orginal tempalte.
+        </p>
+    </section>
+
+    <footer>MediConnect · Template ideas and design references</footer>
+  </main>
+</body>
+</html>
