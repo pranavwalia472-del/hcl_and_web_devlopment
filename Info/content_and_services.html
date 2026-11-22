@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediConnect – Website Pages</title>
+  <style>
+    :root {
+      --ink: #103b46;
+      --muted: #647b88;
+      --teal: #079b91;
+      --teal-dark: #087c78;
+      --line: #e1eceb;
+      --page: #f3f8f8;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 30px;
+      background:
+        radial-gradient(ellipse at 8% 0%, rgba(8, 155, 145, .08), transparent 34%),
+        var(--page);
+      color: var(--ink);
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+    }
+
+    main {
+      width: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .tile {
+      width: 100%;
+      padding: 28px 34px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: 0 7px 22px rgba(21, 65, 73, .045);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tile::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 5px;
+      background: linear-gradient(180deg, var(--teal), #8bd9ce);
+    }
+
+    .topline {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 38px;
+      height: 30px;
+      border-radius: 8px;
+      background: #e9f8f5;
+      color: var(--teal-dark);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .category {
+      color: #8a9da5;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 0;
+      color: var(--ink);
+      font-size: 23px;
+      line-height: 1.3;
+      letter-spacing: -.35px;
+    }
+
+    .details {
+      display: grid;
+      grid-template-columns: minmax(220px, .8fr) minmax(0, 2fr);
+      gap: 34px;
+      align-items: start;
+    }
+
+    .section-title {
+      margin: 0 0 9px;
+      color: var(--teal-dark);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .description {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 9px 26px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .services li {
+      position: relative;
+      padding-left: 18px;
+      color: #48636d;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .services li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .58em;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--teal);
+    }
+
+    @media (max-width: 700px) {
+      body { padding: 16px; }
+      .tile { padding: 24px 22px 24px 26px; }
+      .details { grid-template-columns: 1fr; gap: 20px; }
+      .services { grid-template-columns: 1fr; }
+    }
+  </style>
+  <h1>Content and it's Services</h1>
+</head>
+<body>
+  <main>
+    <section class="tile">
+      <div class="topline">
+        <span class="number">01</span>
+        <h2>Home</h2>
+      </div>
+      <div class="details">
+        <div>
+          <h3 class="section-title">Content</h3>
+          <p class="description">Introduces MediConnect and shows visitors how they can consult doctors online.</p>
+        </div>
+        <div>
+          <h3 class="section-title">Services</h3>
+          <ul class="services">
+            <li>Video consultations</li>
+            <li>Audio consultations</li>
+            <li>Chat consultations</li>
+            <li>Doctor discovery</li>
+            <li>Appointment booking</li>
+            <li>Digital prescriptions</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="tile">
+      <div class="topline">
+        <span class="number">02</span>
+        <h2>Doctors</h2>
+      </div>
+      <div class="details">
+        <div>
+          <h3 class="section-title">Content</h3>
+          <p class="description">Helps patients find doctors and choose the one who best fits their needs.</p>
+        </div>
+        <div>
+          <h3 class="section-title">Services</h3>
+          <ul class="services">
+            <li>Search by doctor name</li>
+            <li>Browse medical specialties</li>
+            <li>General care</li>
+            <li>Cardiology</li>
+            <li>Dermatology</li>
+            <li>Paediatrics</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="tile">
+      <div class="topline">
+        <span class="number">03</span>
+        <h2>Book</h2>
+      </div>
+      <div class="details">
+        <div>
+          <h3 class="section-title">Content</h3>
+          <p class="description">Lets patients enter their details, choose a doctor, and book an appointment.</p>
+        </div>
+        <div>
+          <h3 class="section-title">Services</h3>
+          <ul class="services">
+            <li>Enter patient details</li>
+            <li>Describe symptoms</li>
+            <li>Select a doctor</li>
+            <li>Choose a date and time</li>
+            <li>Choose video, audio or chat consultation</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="tile">
+      <div class="topline">
+        <span class="number">04</span>
+        <h2>My Appointments</h2>
+      </div>
+      <div class="details">
+        <div>
+          <h3 class="section-title">Content</h3>
+          <p class="description">Lets patients view and manage their bookings and join consultations.</p>
+        </div>
+        <div>
+          <h3 class="section-title">Services</h3>
+          <ul class="services">
+            <li>View booked consultations</li>
+            <li>Open the consultation room</li>
+            <li>Exchange chat messages</li>
+            <li>End a consultation</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="tile">
+      <div class="topline">
+        <span class="number">05</span>
+        <h2>FAQ</h2>
+      </div>
+      <div class="details">
+        <div>
+          <h3 class="section-title">Content</h3>
+          <p class="description">Answers common questions and helps patients understand how the platform works.</p>
+        </div>
+        <div>
+          <h3 class="section-title">Services</h3>
+          <ul class="services">
+            <li>Privacy information</li>
+            <li>Video-call requirements</li>
+            <li>Online prescription information</li>
+            <li>Emergency guidance</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="tile">
+      <div class="topline">
+        <span class="number">06</span>
+        <h2>Contact</h2>
+      </div>
+      <div class="details">
+        <div>
+          <h3 class="section-title">Content</h3>
+          <p class="description">Gives patients a way to contact the team when they need help or have questions.</p>
+        </div>
+        <div>
+          <h3 class="section-title">Services</h3>
+          <ul class="services">
+            <li>View contact details</li>
+            <li>Check support hours</li>
+            <li>Send a message through the enquiry form</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
