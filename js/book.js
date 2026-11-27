@@ -1,4 +1,4 @@
-// Book page: 3-step booking wizard
+// Book section: 3-step booking wizard
 document.addEventListener('DOMContentLoaded', initBookingWizard);
 
 // Booking Wizard
@@ -18,13 +18,6 @@ function initBookingWizard() {
     doctorSelect.innerHTML = doctorData.map(d =>
         `<option value="${d.id}">${d.name} (${d.specialty}) - ${d.fee}</option>`
     ).join('');
-
-    // Preselect the doctor when coming from the Doctors page (book.html?doctor=ID)
-    const wanted = new URLSearchParams(window.location.search).get('doctor');
-    if (wanted && doctorData.some(d => d.id == wanted)) {
-        doctorSelect.value = wanted;
-        showToast('Doctor selected. Please fill in your details.');
-    }
 
     // Don't allow past dates
     const now = new Date();
@@ -110,7 +103,22 @@ function initBookingWizard() {
             mode: data.mode,
         });
         saveAppointments();
-        toastNextPage('Appointment booked! See it in My Appointments.');
-        window.location.href = 'appointments.html';
+        renderAppointments();
+
+        // Start a fresh booking and take the patient to their appointments
+        form.reset();
+        dateInput.value = today;
+        goTo(0);
+        document.getElementById('appointments').scrollIntoView();
+        showToast('Appointment booked! See it in My Appointments.');
     });
+}
+
+// Called by "Book Consultation" on a doctor card
+function selectDoctor(id) {
+    const doctorSelect = document.getElementById('doctor-select');
+    if (doctorData.some(d => d.id == id)) {
+        doctorSelect.value = id;
+        showToast('Doctor selected. Please fill in your details.');
+    }
 }

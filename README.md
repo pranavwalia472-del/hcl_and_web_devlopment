@@ -16,10 +16,10 @@ To check the mobile layout, resize the browser window or open Developer Tools (F
 
 | Feature | What to try |
 |---|---|
-| **Navigation** | Use the top menu links to move between pages. On small screens, tap the ☰ button. |
+| **Navigation** | The whole site is one page. Use the top menu links to jump to each section; the current section is highlighted. On small screens, tap the ☰ button. |
 | **How It Works** | Read the four steps from booking to prescription. |
-| **Doctors** | Filter by specialty, or search by name. Click **Book Consultation** on a card to select that doctor in the booking form. |
-| **Book** | Go through the 3-step form: patient details → doctor, date, time and type (video/audio/chat) → confirm. Leave a field empty to see the error messages. |
+| **Doctors** | Filter by specialty, or search by name. Click **Book Consultation** on a card to select that doctor in the booking form and jump to it. |
+| **Book** | Go through the 3-step form: patient details → doctor, date, time and type (video/audio/chat) → confirm. Leave a field empty to see the error messages. After booking, the page scrolls to My Appointments. |
 | **My Appointments** | Booked appointments appear here and are still there after a page refresh. Click **Cancel** to remove one. |
 | **Consultation Room** | Click **Join** on an appointment. The call connects (simulated), and you can chat with the doctor. Close it with **End Consultation**, ✕ or the Esc key. |
 | **FAQ** | Click a question to open the answer. |
@@ -27,17 +27,17 @@ To check the mobile layout, resize the browser window or open Developer Tools (F
 
 ## Files
 
-Each page has its own HTML, CSS and JS. `base.css` and `common.js` are shared by every page.
+The site is a single page, `html/index.html`, with one section per feature. Each section has its own CSS and JS file. `base.css`, `theme.css` and `common.js` are shared.
 
-| Page | HTML | CSS | JS |
-|---|---|---|---|
-| Home (hero + How It Works) | `html/index.html` | `css/home.css` | `js/home.js` |
-| Doctors | `html/doctors.html` | `css/doctors.css` | `js/doctors.js` |
-| Book | `html/book.html` | `css/book.css` | `js/book.js` |
-| My Appointments + Consultation Room | `html/appointments.html` | `css/appointments.css` | `js/appointments.js` |
-| FAQ | `html/faq.html` | `css/faq.css` | `js/faq.js` |
-| Contact | `html/contact.html` | `css/contact.css` | `js/contact.js` |
-| Shared (nav, buttons, forms, footer, toast) | all pages | `css/base.css` | `js/common.js` |
+| Section | CSS | JS |
+|---|---|---|
+| Home (hero) + How It Works | `css/home.css` | `js/home.js` |
+| Doctors | `css/doctors.css` | `js/doctors.js` |
+| Book | `css/book.css` | `js/book.js` |
+| My Appointments + Consultation Room | `css/appointments.css` | `js/appointments.js` |
+| FAQ | `css/faq.css` | `js/faq.js` |
+| Contact | `css/contact.css` | `js/contact.js` |
+| Shared (nav, buttons, forms, footer, toast) | `css/base.css`, `css/theme.css` | `js/common.js` |
 
 ## Accessibility features
 

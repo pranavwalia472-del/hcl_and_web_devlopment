@@ -1,4 +1,4 @@
-// Appointments page: list + simulated consultation room
+// My Appointments section: list + simulated consultation room
 const doctorReplies = [
     "Thank you. How long have you had these symptoms?",
     "I see. Are you taking any medicines at the moment?",
@@ -16,7 +16,7 @@ function renderAppointments() {
     const list = document.getElementById('appointment-list');
 
     if (appointments.length === 0) {
-        list.innerHTML = `<p class="text-center muted">You have no appointments yet. <a href="book.html">Book one now</a>.</p>`;
+        list.innerHTML = `<p class="text-center muted">You have no appointments yet. <a href="#book">Book one now</a>.</p>`;
         return;
     }
 

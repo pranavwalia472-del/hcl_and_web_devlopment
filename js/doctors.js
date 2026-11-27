@@ -1,4 +1,4 @@
-// Doctors page: list with filter + search
+// Doctors section: list with filter + search
 document.addEventListener('DOMContentLoaded', initDoctors);
 
 // Render Doctors with filter + search
@@ -30,7 +30,7 @@ function initDoctors() {
                     ${doc.experience} yrs exp &nbsp;|&nbsp; ${doc.fee}
                 </p>
                 <span class="badge ${doc.online ? 'online' : 'offline'}">${doc.online ? 'Available Now' : 'Busy - Book Later'}</span><br>
-                <a class="btn btn-primary btn-sm" href="book.html?doctor=${doc.id}">Book Consultation</a>
+                <a class="btn btn-primary btn-sm" href="#book" data-doctor="${doc.id}">Book Consultation</a>
             </div>
         `).join('');
     }
@@ -46,5 +46,11 @@ function initDoctors() {
     });
 
     searchBox.addEventListener('input', displayDoctors);
+
+    // "Book Consultation" selects that doctor in the booking form below
+    container.addEventListener('click', e => {
+        const link = e.target.closest('[data-doctor]');
+        if (link) selectDoctor(link.dataset.doctor);
+    });
     displayDoctors();
 }

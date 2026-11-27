@@ -1,6 +1,5 @@
-/* Inner-page theme (everything except index.html).
-   Loaded after base.css and the page's own CSS, so it only overrides styling.
-   To go back to the original look, remove the theme.css <link> from a page. */
+/* Site theme. Loaded after base.css and the section CSS files,
+   so it only overrides styling. */
 
 :root {
     --primary: #0d9488;
@@ -30,14 +29,11 @@ body { background: #ffffff; }
 .nav-links li a:hover { background: var(--light); color: var(--primary-dark); }
 .nav-links li a.active { background: var(--primary); color: #ffffff; }
 
-/* ---------- Page background + headings ---------- */
-.page-top,
-.page-top.bg-light,
-.page-top.bg-dark {
+/* ---------- Section background + headings ---------- */
+.section-tint {
     background: linear-gradient(180deg, #d9f7f2 0, #f0fdfa 280px, #ffffff 640px);
     color: var(--text);
 }
-.page-top.bg-dark h2, .page-top.bg-dark h3 { color: var(--dark); }
 
 h2 {
     font-size: 2.2rem;
@@ -70,6 +66,10 @@ h2.text-center::after,
 .btn-outline { border-color: var(--primary); color: var(--primary-dark); }
 .btn-outline:hover { background: var(--primary); color: #ffffff; }
 .btn-sm { box-shadow: none; }
+
+/* Hero keeps its white outline button on the dark photo */
+.hero .btn-secondary { border-color: #ffffff; color: #ffffff; }
+.hero .btn-secondary:hover { background: #ffffff; color: var(--dark); }
 
 /* ---------- Doctors ---------- */
 .search-box {

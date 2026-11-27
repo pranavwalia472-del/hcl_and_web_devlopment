@@ -1,4 +1,4 @@
-// --- Shared across all pages ---
+// --- Shared by every section of the page ---
 // Data Mockups
 const doctorData = [
     { id: 1, name: "Dr. Emma Clarke", specialty: "General", experience: 10, rating: 4.8, fee: "£30", online: true },
@@ -13,7 +13,7 @@ let appointments = loadAppointments();
 
 document.addEventListener('DOMContentLoaded', () => {
     initMobileNav();
-    showPendingToast();
+    initScrollSpy();
 });
 
 // Mobile Navigation
@@ -25,6 +25,40 @@ function initMobileNav() {
         const open = navLinks.classList.toggle('active');
         hamburger.setAttribute('aria-expanded', open);
     });
+
+    // Close the mobile menu after jumping to a section
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+        });
+    });
+}
+
+// Highlight the menu link of the section currently on screen
+function initScrollSpy() {
+    const links = [...document.querySelectorAll('.nav-links a[href^="#"]')];
+    const sections = links.map(l => document.querySelector(l.getAttribute('href'))).filter(Boolean);
+    if (sections.length === 0) return;
+
+    function update() {
+        const y = window.scrollY + 120;
+        let current = sections[0];
+        sections.forEach(s => { if (s.offsetTop <= y) current = s; });
+        // At the very bottom, the last (short) section is the current one
+        if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 2) {
+            current = sections[sections.length - 1];
+        }
+        links.forEach(l => {
+            const on = l.getAttribute('href') === '#' + current.id;
+            l.classList.toggle('active', on);
+            if (on) l.setAttribute('aria-current', 'location');
+            else l.removeAttribute('aria-current');
+        });
+    }
+
+    window.addEventListener('scroll', update, { passive: true });
+    update();
 }
 
 function getInitials(name) {
@@ -66,19 +100,4 @@ function showToast(msg, isError = false) {
     toast.classList.add('show');
     clearTimeout(toast.timer);
     toast.timer = setTimeout(() => toast.classList.remove('show'), 3000);
-}
-
-// Show a toast on the next page (used after redirects)
-function toastNextPage(msg) {
-    try { sessionStorage.setItem('pendingToast', msg); } catch { /* ignore */ }
-}
-
-function showPendingToast() {
-    try {
-        const msg = sessionStorage.getItem('pendingToast');
-        if (msg) {
-            sessionStorage.removeItem('pendingToast');
-            showToast(msg);
-        }
-    } catch { /* ignore */ }
 }
